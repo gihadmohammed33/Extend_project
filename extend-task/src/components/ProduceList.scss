@@ -1,0 +1,129 @@
+// Color and shadow variables for consistency and reusability
+$product-border-color: #e0e0e0;
+$product-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); // Softer shadow
+$product-card-hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); // Larger shadow on hover
+$product-card-radius: 12px; // More pronounced border-radius
+$product-title-color: #333;
+$product-background-color: #f8f8f8; // Slightly off-white background for contrast
+$product-padding: 20px; // Increased padding for spacing
+
+.product-list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr); // Default: 4 equal columns
+  gap: 25px; // Increased space between cards
+  margin: 0 auto;
+  padding: $product-padding;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr); // 3 columns for medium screens
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns for smaller screens
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr); // 1 column for mobile screens
+    margin-left: 0;
+  }
+}
+
+.product-card {
+  border: 1px solid $product-border-color; // Subtle border
+  border-radius: $product-card-radius; // Rounded corners for smooth appearance
+  overflow: hidden; // Ensure content doesn't overflow
+  transition: transform 0.4s ease, box-shadow 0.3s ease; // Smooth transitions
+  max-width: 270px; // Slightly larger width for a better feel
+  padding: 15px; // More padding for content
+  background-color: $product-background-color; // Light background for contrast
+  box-shadow: $product-card-shadow; // Subtle shadow
+
+  &:hover {
+    transform: scale(1.07); // Slightly larger scale for better hover effect
+    box-shadow: $product-card-hover-shadow; // Stronger shadow on hover
+  }
+
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; // Vertically center content
+    padding: 10px; // Space between image and text
+  }
+
+  .product-image {
+    width: 100%;
+    height: 160px; // A bit larger height
+    object-fit: cover; // Ensure full coverage of image area
+    border-radius: $product-card-radius; // Smooth corners for the image
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .product-image {
+    transform: scale(1.1); // Slight zoom on hover for a dynamic feel
+  }
+
+  .product-title {
+    font-size: 1.2em; // Slightly larger font size for the title
+    margin: 12px 0; // Better spacing around the title
+    color: $product-title-color;
+    text-align: center;
+  }
+
+  .product-price {
+    font-size: 1.05em; // Regular font size for price
+    color: #666; // Slightly darker color for better contrast
+    font-weight: bold; // Bold text for emphasis on price
+  }
+}
+
+// Responsive styling for small devices
+@media (max-width: 576px) {
+  .product-card {
+    max-width: 100%; // Full width for cards on small screens
+    padding: 10px;
+  }
+
+  .product-title {
+    font-size: 1.1em; // Reduced size for better readability on small screens
+  }
+
+  .product-price {
+    font-size: 1em;
+  }
+}
+.sorting-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; // Space between sorting buttons and product list
+  
+    button {
+      background-color: #4CAF50; // Green background color
+      color: #fff; // White text color
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 10px; // Spacing between buttons
+      cursor: pointer;
+      border-radius: 8px; // Rounded corners
+      transition: background-color 0.3s ease, transform 0.2s ease;
+  
+      &:hover {
+        background-color: #45a049; // Darker green on hover
+        transform: translateY(-2px); // Slight lift effect on hover
+      }
+  
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(72, 180, 97, 0.5); // Highlight on focus
+      }
+  
+      &:active {
+        transform: translateY(1px); // Pressed effect
+      }
+    }
+  }
+  

@@ -1,0 +1,135 @@
+$product-background-color: #ffffff;
+$product-title-color: #333;
+$product-price-color: #e67e22;
+$product-button-color: #b216b4;
+$product-button-hover-color: #9a0e92; // Darker shade for hover
+$product-shadow: rgba(0, 0, 0, 0.2);
+$product-border-radius: 12px;
+
+.product-detail {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  background: linear-gradient(to bottom right, #f0f0f0, #ffffff); // Gradient background
+  border-radius: $product-border-radius;
+  box-shadow: 0 4px 30px $product-shadow;
+  max-width: 1200px; // Maximum width for large screens
+  margin: 0 auto; // Center the product detail
+
+  .detail-card {
+    display: flex; // Flex layout for image and info
+    background-color: #ffffff; // Card background
+    border-radius: $product-border-radius;
+    box-shadow: 0 4px 20px $product-shadow;
+    overflow: hidden; // Prevent overflow of image
+    width: 100%; // Full width for card
+    max-width: 900px; // Maximum width for the detail card
+    transition: transform 0.3s ease, box-shadow 0.3s ease; // Smooth scaling on hover
+
+    &:hover {
+      transform: translateY(-5px); // Lift effect on hover
+      box-shadow: 0 8px 40px $product-shadow; // Enhanced shadow on hover
+    }
+
+    .product-image-container {
+      flex: 1; // Take 50% of width
+      position: relative; // For positioning effects
+      overflow: hidden;
+
+      .product-image {
+        width: 100%; // Full width of the container
+        height: 400px; // Fixed height for image
+        object-fit: cover; // Cover image without distortion
+        transition: transform 0.3s ease; // Transition for zoom effect
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); // Inner shadow for depth
+
+        &:hover {
+          transform: scale(1.05); // Slight zoom on hover
+        }
+      }
+    }
+
+    .product-info {
+      flex: 1.5; // Take more width than the image
+      padding: 20px; // Padding around info
+      background-color: #edcee2; // Light pink background
+      border-radius: 0 12px 12px 0; // Round corners only on the right
+      display: flex;
+      flex-direction: column; // Stack elements vertically
+      justify-content: space-between; // Space elements evenly
+
+      .product-title {
+        font-size: 2.4em; // Increased title size
+        color: $product-title-color;
+        margin-bottom: 10px;
+        font-weight: 600; // Semi-bold for emphasis
+        text-transform: capitalize; // Capitalize title
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); // Soft text shadow
+      }
+
+      .product-price {
+        font-size: 2em; // Price size
+        color: $product-price-color;
+        margin: 15px 0;
+        font-weight: 700; // Bold for price
+        text-align: left; // Right align price
+      }
+
+      .product-description {
+        font-size: 1.1em; // Description size
+        color: #555;
+        margin: 10px 0;
+        line-height: 1.6;
+        padding: 10px 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        flex-grow: 1; // Allow description to grow
+      }
+      .span{
+        color: #251022;
+      }
+      .add-to-cart {
+        background-color: $product-button-color;
+        color: white;
+        padding: 14px 22px; // Slightly larger padding
+        border: none;
+        border-radius: $product-border-radius;
+        cursor: pointer;
+        font-size: 1.3em; // Increased button font size
+        font-weight: 600; // Semi-bold for button text
+        text-transform: uppercase;
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+
+        &:hover {
+          background-color: $product-button-hover-color;
+          transform: translateY(-2px); // Slight lift effect
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); // Shadow on hover
+        }
+      }
+    }
+  }
+
+  .not-found {
+    text-align: center;
+    color: red;
+    font-size: 1.5em;
+  }
+
+  .loading {
+    text-align: center;
+    font-size: 1.5em;
+    color: #888; // Light gray for loading text
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .product-detail {
+    flex-direction: column;
+
+    .detail-card {
+      flex-direction: column; // Stack image and info on small screens
+    }
+  }
+}
